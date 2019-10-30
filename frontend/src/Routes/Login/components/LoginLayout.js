@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/Login.css';
+import '../styles/Login.css';
 
 const LoginLayout = props => {
     return (

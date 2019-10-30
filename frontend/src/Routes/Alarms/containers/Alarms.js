@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import AlarmsLayout from '../components/AlarmsLayout';
 
 class alarms extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     handleEmergency = type => {
         switch(type) {
             case 'doctor':
