@@ -1,15 +1,17 @@
 import React from 'react';
 
+import '../styles/Alarmas.css';
+
 const AlarmsLayout = props => {
     return (
-        <React.Fragment>
+        <div className="center">
             <div>
-                <button onClick={ () => { props.onEmergency('doctor') }}>Call a doctor</button>         
+                <button className="doctor" onClick={ () => { props.onEmergency('doctor') }}>Call a doctor</button>         
             </div>
             <div>
-                <button onClick={ () => { props.onEmergency('emergency') }}>CALL AN EMERGENCY!</button>         
+                <button className="emergency" onClick={ () => { props.onEmergency('emergency') }}>CALL AN EMERGENCY!</button>         
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 

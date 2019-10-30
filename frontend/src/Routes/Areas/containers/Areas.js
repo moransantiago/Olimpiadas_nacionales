@@ -23,10 +23,15 @@ class Areas extends Component {
         }
     }
 
+    handleSubmit = () => {
+        
+    }
+
     render() {
         return (
             <AreasLayout 
                 areas={this.state.areas}
+                onSubmit={this.handleSubmit}
             />
         );
     }

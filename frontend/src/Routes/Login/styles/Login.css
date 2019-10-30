@@ -7,11 +7,11 @@
     align-content: center;
 }
 
-form input, label{
-    margin-right: 550px;
-    margin-left: 550px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.input, .label{
+    margin-right: 550px !important;
+    margin-left: 550px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .first{

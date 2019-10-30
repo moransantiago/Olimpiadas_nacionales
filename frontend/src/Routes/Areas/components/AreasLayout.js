@@ -4,25 +4,43 @@ import '../styles/Tables.css'
 
 const AreasLayout = props => {
     return (
-        <React.Fragment>
-            <h1>Areas</h1>
-            <table>
-                <tr>
-                    <th>Número de area</th>
-                    <th>Nombre</th>
-                    <th>Lugar</th>
-                </tr>
-                {props.areas.map((item, index) => {
-                    return (
+        <div className="row">
+            <div>
+                <h1>Areas</h1>
+                <table>
+                    <thead>
                         <tr>
-                            <td>{`Area número: ${item.id_area}`}</td>
-                            <td>{item.nombre_area}</td>
-                            <td>{item.nombre_area}</td>
+                            <th>Número de area</th>
+                            <th>Nombre</th>
+                            <th>Lugar</th>
                         </tr>
-                    );  
-                })}
-            </table>
-        </React.Fragment>
+                    </thead>
+                    <tbody>
+                        {props.areas.map(item => {
+                            return (
+                                <tr key={item.id_area}>
+                                    <td>{item.id_area}</td>
+                                    <td>{item.nombre_area}</td>
+                                    <td>{item.ubicacion}</td>
+                                    <td>
+                                        <button onClick={null}>Borrar area</button>
+                                    </td>
+                                </tr>
+                            );  
+                        })}
+                    </tbody>
+                </table>
+            </div>
+            <hr/>
+            <div className="column">
+                <h1>Agregar un area</h1>
+                <form className="column" onSubmit={ e => props.onSubmit(e) }>
+                    <label>Nombre</label>
+                    <input type="text"></input>
+                    <input type="submit" value="Create"></input>
+                </form>
+            </div>
+        </div>
     );
 };
 
