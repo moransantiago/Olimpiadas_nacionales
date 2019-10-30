@@ -4,8 +4,11 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 // const helmet = require('helmet');
 
-// Borrar
-const mysql = require('./lib/mysql');
+const alarmRoute = require('./routes/alarm');
+const authRoute = require('./routes/auth');
+const patientsRoute = require('./routes/patients');
+const reportsRoute = require('./routes/reports');
+const usersRoute = require('./routes/users');
 
 const { srvConfig } = require('./config');
 
@@ -18,8 +21,6 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
@@ -28,10 +29,12 @@ const server = app.listen(srvConfig.port, () => {
   console.log('Server has been initialized on http://localhost:' + server.address().port);
 });
 
-mysql.connection().query("CREATE TABLE a (PersonID int, LastName varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255) )", (err, result) => {
-    if(err){
-        console.log(err);
-    }
+// mysql.client.query("SELECT * FROM usuarios", (err, result) => {
+//     if(err){
+//       console.log("");
+//       console.log(err);
+//       return;
+//     }
 
-    console.log(result);
-})
+//     console.log(result);
+// })
