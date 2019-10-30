@@ -11,30 +11,33 @@ const reportsRoute = require('./routes/reports');
 const usersRoute = require('./routes/users');
 
 const { srvConfig } = require('./config');
+const { clientErrorHandler, logErrors, errorHandler, wrapErrors } = require('./utils/middlewares/errorHandlers')
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 // app.use(helmet());
 
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 
+app.use('/api/alarm', alarmRoute);
+app.use('/api/auth', authRoute);
+app.use('/api/patients', patientsRoute);
+app.use('/api/reports', reportsRoute);
+app.use('/api/users', usersRoute);
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
 });
 
+// Error Handlers
+app.use(logErrors);
+app.use(wrapErrors);
+app.use(clientErrorHandler);
+app.use(errorHandler);
+
 const server = app.listen(srvConfig.port, () => {
   console.log('Server has been initialized on http://localhost:' + server.address().port);
 });
-
-// mysql.client.query("SELECT * FROM usuarios", (err, result) => {
-//     if(err){
-//       console.log("");
-//       console.log(err);
-//       return;
-//     }
-
-//     console.log(result);
-// })
