@@ -1,4 +1,5 @@
 const mysql = require('../lib/mysql');
+const { emitAlarm } = require('../sockets/alarm');
 
 class Alarm{
     constructor(){
@@ -10,13 +11,17 @@ class Alarm{
         return alarms;
     }
 
-    async getAlarmById(alarmId){
+    async getAlarmById({alarmId}){
         const alarm = await mysql.query(`SELECT * FROM ${this.table} WHERE id_alarma=${alarmId}`);
         return alarm;
     }
 
-    async createAlarm(area, location){
-        await mysql.query(`SELECT * FROM ${this.table} WHERE id_alarma=${alarmId}`);
+    async createAlarm({ type, area, location }){
+        await mysql.query(`INSERT INTO alarmas (tipo_alarma, ubicacion, area_alarma) VALUE ('${type}', '${location}', '${area}')`);
+    }
+
+    notifyAlarms(alarmIo, globalIo, { type, area, location }){
+        emitAlarm(alarmIo, globalIo, { type, area, location });
     }
 }
 

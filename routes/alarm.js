@@ -21,7 +21,7 @@ router.get('/:alarmId', async (req, res, next) => {
     const { alarmId } = req.params;
 
     try {
-        const alarm = await AlarmService.getAlarmById(alarmId);
+        const alarm = await AlarmService.getAlarmById({alarmId});
         res.status(200).json({
             data: alarm,
             message: 'Alarm retrived succesfully'
