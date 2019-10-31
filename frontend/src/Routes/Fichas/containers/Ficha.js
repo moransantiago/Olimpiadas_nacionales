@@ -1,23 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Ficha = props => {
-    return (
-        <form>
-            <label>Nombre</label>
-            <input type="text"></input>
-            <label>Apellido</label>
-            <input type="text"></input>
-            <label>Telefono</label>
-            <input type="number"></input>
-            <label>DNI</label>
-            <input type="number"></input>
-            <label>Ubicación</label>
-            <input type="text"></input>
-            <label>Alergias</label>
-            <input type="text"></input>
-            <input type="submit" value="Crear ficha"/>
-        </form>
-    );
-};
+import FichaLayout from '../components/FichaLayout';
+
+class Ficha extends Component {
+    render() {
+        return (
+            <FichaLayout/>
+        );
+    }
+}
 
 export default Ficha;

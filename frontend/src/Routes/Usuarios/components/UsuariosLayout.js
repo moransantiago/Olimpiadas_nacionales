@@ -2,7 +2,7 @@ import React from 'react';
 
 const UsuariosLayout = props => {
     return (
-        <React.Fragment>
+        <div className="panel-container">
             <h1>Usuarios</h1>
             <table>
                 <thead>
@@ -31,7 +31,7 @@ const UsuariosLayout = props => {
                     })}
                 </tbody>
             </table>
-        </React.Fragment>
+        </div>
     );
 };
 

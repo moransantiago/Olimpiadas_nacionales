@@ -4,7 +4,7 @@ import '../styles/Alarmas.css';
 
 const AlarmsLayout = props => {
     return (
-        <div className="center">
+        <div className="panel-container">
             <div>
                 <button className="doctor" onClick={ () => { props.onEmergency('doctor') }}>Call a doctor</button>         
             </div>

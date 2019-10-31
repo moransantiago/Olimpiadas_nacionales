@@ -6,7 +6,7 @@ const AreasLayout = props => {
     return (
         <div className="row">
             <div>
-                <h1>Areas</h1>
+                <h1 className="title">Areas</h1>
                 <table>
                     <thead>
                         <tr>

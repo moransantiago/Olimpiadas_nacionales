@@ -7,26 +7,31 @@ import '../styles/Panel.css';
 
 const PanelLayout = props => {
     return (
-        <div className="column">
-            <h1>Panel de administración</h1>
+        <div className="panel-container">
+            <h1 className="title">Panel de administración</h1>
             <Link to="/areas">
-                <button>
+                <button className="menu-buttons">
                     Administrar areas
                 </button>
             </Link>    
             <Link to="/ficha">
-                <button>
+                <button className="menu-buttons">
                     Crear una ficha de paciente
                 </button>
             </Link>
             <Link to="/alarmas">
-                <button>
+                <button className="menu-buttons">
                     Registro de alarmas
                 </button>
             </Link>
             <Link to="/usuarios">
-                <button>
+                <button className="menu-buttons">
                     Administrar usuarios
+                </button>
+            </Link>
+            <Link to="/emergencia">
+                <button className="menu-buttons">
+                    Alarma
                 </button>
             </Link>
         </div>

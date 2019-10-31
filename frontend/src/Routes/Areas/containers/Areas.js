@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import AreasLayout from '../components/AreasLayout';
 
+import { getAreas } from '../../../utils/api';
+
 class Areas extends Component {
     constructor(props) {
         super(props);
@@ -20,6 +22,15 @@ class Areas extends Component {
                     nombre_area: 'Balvanera'
                 }
             ]
+        }
+    }
+
+    componentDidMount = async () => {
+        try {
+            const { areas } = await getAreas();
+            this.setState({ areas });
+        } catch (error) {
+            console.log(error);
         }
     }
 

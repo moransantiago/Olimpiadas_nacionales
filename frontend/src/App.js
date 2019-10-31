@@ -12,7 +12,8 @@ import Panel from './Routes/Panel/containers/Panel';
 import Areas from './Routes/Areas/containers/Areas';
 import Botonera from './Routes/Alarms/containers/Alarms';
 import Ficha from './Routes/Fichas/containers/Ficha';
-import Usuarios from './Routes/Usuarios/containers/Usuarios'
+import Usuarios from './Routes/Usuarios/containers/Usuarios';
+import Emergency from './Routes/Alarms/containers/Emergency';
 
 import './App.css';
 
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/ficha" component={Ficha}/>
         <Route exact path="/panel" component={Panel}/>
         <Route exact path="/usuarios" component={Usuarios}/>
+        <Route exact path="/emergencia" component={Emergency}/>
         <Route>404 not found</Route>
       </Switch>
     </BrowserRouter>
