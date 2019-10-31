@@ -12,7 +12,7 @@ function trigger(app, {io, globalIo}){
         
         try {
             AlarmService.notifyAlarms(io, globalIo, { location, area, type });
-            await AlarmService.createAlarm({ type, area, location });
+            // await AlarmService.createAlarm({ type, area, location });
             res.status(200).json({
                 data: {},
                 message: 'Alarm triggered succesfully'

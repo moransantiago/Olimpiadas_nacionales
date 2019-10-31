@@ -3,19 +3,15 @@ const { BasicStrategy } = require('passport-http');
 const boom = require('boom');
 const bcrypt = require('bcryptjs');
 
-const MongoLib = require('../../lib/mongo');
-
+const UserService = require('../../services/user');
 
 passport.use(
-    new BasicStrategy( async (username, password, done)=>{
-        const mongoDB = new MongoLib(); //Inits the mongoDb library
-
+    new BasicStrategy( async (email, password, done)=>{
         try{
-            const [user] = await mongoDB.getAll('users', { username }); //Gets all the users with the email
+            const [user] = await UserService.getUserByEmail(email) /* mongoDB.getAll('users', { username }) */; //Gets all the users with the email
             if(!user) {
                 return done(boom.unauthorized(), false); //If no users were returned triggers unauthorized
             }
-            
             
             if(!await bcrypt.compare(password, user.password)){ //Bcrypt compares the sended password with the user's stored password
                 return done(boom.unauthorized(), false); //If They dont match, Unauthorized

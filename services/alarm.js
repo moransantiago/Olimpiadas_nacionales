@@ -1,5 +1,5 @@
 const mysql = require('../lib/mysql');
-const { emitAlarm } = require('../sockets/alarm');
+const AlarmSockets = require('../sockets/alarm');
 
 class Alarm{
     constructor(){
@@ -21,7 +21,7 @@ class Alarm{
     }
 
     notifyAlarms(alarmIo, globalIo, { type, area, location }){
-        emitAlarm(alarmIo, globalIo, { type, area, location });
+        AlarmSockets.emitAlarm(alarmIo, globalIo, { type, area, location });
     }
 }
 

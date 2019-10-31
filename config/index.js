@@ -5,8 +5,6 @@ const srvConfig = {
     dev:  process.env.NODE_ENV === 'development'
 }
 
-console.log(srvConfig);
-
 const dbConfig = {
     dbUser: process.env.DB_USER,
     dbPassword: process.env.DB_PASSWORD,

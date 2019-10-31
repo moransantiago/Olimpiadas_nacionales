@@ -14,7 +14,7 @@ const reportsRoute = require('./routes/reports');
 const usersRoute = require('./routes/users');
 const triggerRoute = require('./routes/trigger');
 
-const alarmEvents = require('./sockets/alarm');
+const { bindAlarmEvents } = require('./sockets/alarm');
 
 const { srvConfig } = require('./config');
 const { clientErrorHandler, logErrors, errorHandler, wrapErrors } = require('./utils/middlewares/errorHandlers')
@@ -33,9 +33,12 @@ app.use('/api/reports', reportsRoute);
 app.use('/api/users', usersRoute);
 triggerRoute(app, {io: io.of('/api/alarm'), globalIo: io});
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-});
+bindAlarmEvents(io.of('/ws/alarm'));
+
+// app.get('*', (req, res) => {
+//   console.log('Quise devolver el frontend');
+//   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+// });
 
 // Error Handlers
 app.use(logErrors);
@@ -43,6 +46,6 @@ app.use(wrapErrors);
 app.use(clientErrorHandler);
 app.use(errorHandler);
 
-const srv = app.listen(srvConfig.port, () => {
-  console.log('Server has been initialized on http://localhost:' + srv.address().port);
+server.listen(srvConfig.port, () => {
+  console.log(`El server se ha iniciado en: http://localhost:${srvConfig.port || 4000}`);
 });

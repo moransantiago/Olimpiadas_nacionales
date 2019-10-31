@@ -6,17 +6,26 @@ class Area{
     }
 
     async getAreas(){
-        const alarms = await mysql.query(`SELECT * FROM ${this.table}`);
-        return alarms;
+        const areas = await mysql.query(`SELECT * FROM ${this.table}`);
+        return areas;
     }
 
-    async getAlarmById(alarmId){
-        const alarm = await mysql.query(`SELECT * FROM ${this.table} WHERE id_alarma=${alarmId}`);
-        return alarm;
+    async getAreaById({ areaId }){
+        const area = await mysql.query(`SELECT * FROM ${this.table} WHERE id_area=${areaId}`);
+        return area;
     }
 
-    async createAlarm(area, location){
-        await mysql.query(`INSERT INTO ${this.table}(tipo_alarma, ubicacion, area_alarma) VALUES()`);
+    async getAreaByName({ areaName }){
+        const area = await mysql.query(`SELECT * FROM ${this.table} WHERE nombre_area=${areaName}`);
+        return area;
+    }
+
+    async createArea({ areaName }){
+        await mysql.query(`INSERT INTO ${this.table}(nombre_area) VALUES("${name}")`);
+    }
+
+    async deleteArea({ areaId }){
+        await mysql.query(`DELETE FROM ${this.table} WHERE id_area=${areaId}`);
     }
 }
 
