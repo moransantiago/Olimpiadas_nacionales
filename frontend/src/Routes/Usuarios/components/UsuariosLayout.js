@@ -22,9 +22,9 @@ const UsuariosLayout = props => {
                                 <td>{item.apellido_usuario}</td>
                                 <td>{item.email_usuario}</td>
                                 <td>{item.telefono_usuario}</td>
-                                <td>{item.tipo}</td>
+                                <td>{item.tipo_usuario}</td>
                                 <td>
-                                    <button onClick={null}>Borrar usuario</button>
+                                    <button onClick={() => { props.onDelete(item.id_usuario) }}>Borrar usuario</button>
                                 </td>
                             </tr>
                         );  

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import AreasLayout from '../components/AreasLayout';
 
-import { getAreas } from '../../../utils/api';
+import { getAreas, setArea, deleteArea } from '../../../utils/api';
 
 class Areas extends Component {
     constructor(props) {
@@ -10,16 +10,8 @@ class Areas extends Component {
         this.state = {
             areas: [
                 {
-                    id_area: 1,
-                    nombre_area: 'San Telmo'
-                },
-                {
-                    id_area: 2,
-                    nombre_area: 'La boca'
-                },
-                {
-                    id_area: 3,
-                    nombre_area: 'Balvanera'
+                    id_area: undefined,
+                    nombre_area: ''
                 }
             ]
         }
@@ -27,15 +19,32 @@ class Areas extends Component {
 
     componentDidMount = async () => {
         try {
-            const { areas } = await getAreas();
-            this.setState({ areas });
+            const { data } = await getAreas();
+            this.setState({ areas: data.data });
         } catch (error) {
             console.log(error);
         }
     }
 
-    handleSubmit = () => {
-        
+    handleSubmit = async (e, areaName) => {
+        e.preventDefault();
+        try {
+            await setArea(areaName);
+            alert('Area creada con éxito!');
+        } catch (error) {
+            console.log(error);
+            alert('Ha habido un problema');
+        }
+    }
+
+    handleDelete = async id => {
+        try {
+            await deleteArea(id);
+            alert('Area borrada con éxito!');
+        } catch (error) {
+            console.log(error);
+            alert('Ha habido un problema');
+        }
     }
 
     render() {
@@ -43,6 +52,7 @@ class Areas extends Component {
             <AreasLayout 
                 areas={this.state.areas}
                 onSubmit={this.handleSubmit}
+                onDelete={this.handleDelete}
             />
         );
     }

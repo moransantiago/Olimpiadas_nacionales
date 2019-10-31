@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import UsuariosLayout from '../components/UsuariosLayout';
+import { getUsers, deleteUser } from '../../../utils/api';
 
 class Usuarios extends Component {
     constructor(props) {
@@ -20,10 +21,30 @@ class Usuarios extends Component {
         }
     }
 
+    componentDidMount = async () => {
+        try {
+            const { data } = await getUsers();
+            this.setState({ users: data.data });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    handleDelete = async id => {
+        try {
+            await deleteUser(id);
+            alert('Usuario eliminado con éxito');
+        } catch (error) {
+            console.log(error);
+            alert('No se ha podido borrar el usuario');
+        }
+    }
+
     render() {
         return (
             <UsuariosLayout
                 users={this.state.users}
+                onDelete={this.handleDelete}
             />
         );
     }

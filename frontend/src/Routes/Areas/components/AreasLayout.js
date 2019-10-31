@@ -12,7 +12,6 @@ const AreasLayout = props => {
                         <tr>
                             <th>Número de area</th>
                             <th>Nombre</th>
-                            <th>Lugar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,9 +20,8 @@ const AreasLayout = props => {
                                 <tr key={item.id_area}>
                                     <td>{item.id_area}</td>
                                     <td>{item.nombre_area}</td>
-                                    <td>{item.ubicacion}</td>
                                     <td>
-                                        <button onClick={null}>Borrar area</button>
+                                        <button onClick={() => { props.onDelete(item.id_area) }}>Borrar area</button>
                                     </td>
                                 </tr>
                             );  
@@ -34,9 +32,9 @@ const AreasLayout = props => {
             <hr/>
             <div className="column">
                 <h1>Agregar un area</h1>
-                <form className="column" onSubmit={ e => props.onSubmit(e) }>
+                <form className="column" onSubmit={ e => props.onSubmit(e, document.getElementById('name').value) }>
                     <label>Nombre</label>
-                    <input type="text"></input>
+                    <input id="name" type="text"></input>
                     <input type="submit" value="Create"></input>
                 </form>
             </div>

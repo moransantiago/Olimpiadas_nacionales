@@ -1,4 +1,4 @@
-form input, label {
+form input.input-panel, label.label-panel {
     margin-right: 550px;
     margin-left: 550px;
     margin-top: 10px;

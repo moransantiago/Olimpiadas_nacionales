@@ -7,10 +7,10 @@ const LoginLayout = props => {
         <form className="column" onSubmit={ e => { props.onLogin(e) } }>
             <h1>Login</h1>
             <label className="first label">Usuario</label>
-            <input className="input" type="text"/>
-            <label className="label">Contraseña</label>
-            <input className="input" type="password"/>
-            <input className="input" type="submit" value="Login!"/>
+            <input className="input-login" type="text"/>
+            <label className="label-login">Contraseña</label>
+            <input className="input-login" type="password"/>
+            <input className="input-login" type="submit" value="Login!"/>
         </form>
     );
 };
