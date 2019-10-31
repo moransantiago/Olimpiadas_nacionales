@@ -46,6 +46,22 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.put('/:patientId', async (req, res, next) => {
+    const { patientId } = req.params;
+    const patient = req.body;
+
+    try {
+        await PatientService.updatePatient({ patient, patientId });
+
+        res.status(200).json({
+            data: {},
+            message: 'Patient updated successfuly'
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.delete('/:patientId', async (req, res, next) => {
     const { patientId } = req.params;
 

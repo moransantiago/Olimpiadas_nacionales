@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 // const helmet = require('helmet');
 
 const alarmRoute = require('./routes/alarm');
+const areaRoute = require('./routes/area');
 const authRoute = require('./routes/auth');
 const patientsRoute = require('./routes/patients');
 const reportsRoute = require('./routes/reports');
@@ -31,6 +32,7 @@ app.use('/api/auth', authRoute);
 app.use('/api/patients', patientsRoute);
 app.use('/api/reports', reportsRoute);
 app.use('/api/users', usersRoute);
+app.use('/api/areas', areaRoute);
 triggerRoute(app, {io: io.of('/api/alarm'), globalIo: io});
 
 bindAlarmEvents(io.of('/ws/alarm'));

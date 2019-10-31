@@ -1,28 +1,28 @@
 const mysql = require('../lib/mysql');
 
-class Area{
+class Report{
     constructor(){
         this.table = 'reportes';
     }
 
     async getReports(){
-        const patients = await mysql.query(`SELECT * FROM ${this.table}`);
-        return patients;
+        const reports = await mysql.query(`SELECT * FROM ${this.table}`);
+        return reports;
     }
-
+    
     async getReportById({ reportId }){
-        const patient = await mysql.query(`SELECT * FROM ${this.table} WHERE id_area=${reportId}`);
-        return patient;
+        const report = await mysql.query(`SELECT * FROM ${this.table} WHERE id_report=${reportId}`);
+        return report;
     }
 
-    async createReport({ patient }){
-        const { firstName , lastName , phone , dni , alergy , state } = patient;
-        await mysql.query(`INSERT INTO ${this.table} (nombre_pasiente, apellido_pasiente, telefono_pasiente, dni_pasiente, alergia, estado) VALUES(${firstName}, ${lastName}, ${phone}, ${dni}, ${alergy}, ${state})`);
+    async createReport({ report }){
+        const { enfermero_reporte, pasiente_reporte, alarma_reporte, atendido_reporte } = report;
+        await mysql.query(`INSERT INTO ${this.table} (enfermero_reporte, pasiente_reporte, alarma_reporte, atendido_reporte) VALUES(${enfermero_reporte}, ${pasiente_reporte}, ${alarma_reporte}, ${atendido_reporte}`);
     }
 
-    async deleteReport({ patientId }){
-        await mysql.query(`DELETE FROM ${this.table} WHERE id_pasiente=${patientId}`);
+    async deleteReport({ reportId }){
+        await mysql.query(`DELETE FROM ${this.table} WHERE id_reporte=${reportId}`);
     }
 }
 
-module.exports = new Area();
+module.exports = new Report();

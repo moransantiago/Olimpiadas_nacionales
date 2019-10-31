@@ -3,7 +3,6 @@ const router = require('express').Router();
 const AreaService = require('../services/area');
 
 router.get('/', async (req, res, next) => {
-    
     try {
         const areas = await AreaService.getAreas();
 
@@ -32,10 +31,10 @@ router.get('/:areaId', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-    const { areaName } = req.body;
+    const { nombre_area } = req.body;
 
     try {
-        await AreaService.createArea({ areaName });
+        await AreaService.createArea({ nombre_area });
 
         res.status(200).json({
             data: {},
@@ -46,7 +45,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.delete('/:areaId', (req, res, next) => {
+router.delete('/:areaId', async (req, res, next) => {
     const { areaId } = req.params;
 
     try {

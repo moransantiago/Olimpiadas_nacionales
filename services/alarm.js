@@ -12,7 +12,7 @@ class Alarm{
     }
 
     async getAlarmById({alarmId}){
-        const alarm = await mysql.query(`SELECT * FROM ${this.table} WHERE id_alarma=${alarmId}`);
+        const [alarm] = await mysql.query(`SELECT * FROM ${this.table} WHERE id_alarma=${alarmId}`);
         return alarm;
     }
 
