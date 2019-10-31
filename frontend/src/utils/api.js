@@ -50,6 +50,19 @@ export const getUsers = () => axios({   //<-- Get
     method: 'get'
 });
 
+export const setUser = user => axios({  //<-- Post
+    url: `${API_URL}/api/users`,
+    method: 'post',
+    data: {
+        nombre_usuario: user.name,
+        apellido_usuario: user.lastName,
+        contraseña: user.password,
+        email_usuario: user.email,
+        telefono_usuario: user.telphone,
+        tipo_usuario: user.type
+    }
+});
+
 export const deleteUser = id => axios({ //<-- Delete
     url: `${API_URL}/api/users/${id}`,
     method: 'delete'

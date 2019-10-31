@@ -3,6 +3,7 @@ import React from 'react';
 const AlarmsLogLayout = props => {
     return (
         <div className="panel-container">
+            <h1 className="black">Registro de alarmas</h1>
             <table>
                 <thead>
                     <tr>

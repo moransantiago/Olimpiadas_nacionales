@@ -9,10 +9,6 @@ class Areas extends Component {
         super(props);
         this.state = {
             areas: [
-                {
-                    id_area: undefined,
-                    nombre_area: ''
-                }
             ]
         }
     }

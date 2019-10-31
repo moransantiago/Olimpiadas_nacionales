@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 
 import UsuariosLayout from '../components/UsuariosLayout';
-import { getUsers, deleteUser } from '../../../utils/api';
+import { getUsers, deleteUser, setUser } from '../../../utils/api';
 
 class Usuarios extends Component {
     constructor(props) {
         super(props);
         this.state = {
             users: [
-                {
-                    id_usuario: 1,
-                    nombre_usuario: 'Santiago',
-                    apellido_usuario: 'Moran',
-                    contraseña: '123',
-                    email_usuario: 'salmiron@hotmail.com',
-                    telefono_usuario: '1150473590',
-                    tipo: 'Administrador'
-                }
             ]
         }
     }
@@ -30,10 +21,24 @@ class Usuarios extends Component {
         }
     }
 
+    handleSubmit = async (e, user) => {
+        e.preventDefault();
+        try {
+            await setUser(user);
+            alert('Usuario creado exitosamente!');
+            const { data } = await getUsers();
+            this.setState({ users: data.data });
+        } catch (error) {
+            console.log(error);
+            alert('Ha ocurrido un error');
+        }
+    }
     handleDelete = async id => {
         try {
             await deleteUser(id);
             alert('Usuario eliminado con éxito');
+            const { data } = await getUsers();
+            this.setState({ users: data.data });
         } catch (error) {
             console.log(error);
             alert('No se ha podido borrar el usuario');
@@ -44,6 +49,7 @@ class Usuarios extends Component {
         return (
             <UsuariosLayout
                 users={this.state.users}
+                onSubmit={this.handleSubmit}
                 onDelete={this.handleDelete}
             />
         );
