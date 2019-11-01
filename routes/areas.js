@@ -54,7 +54,7 @@ router.put('/:areaId', async (req, res, next) => {
 
         res.status(200).json({
             data: {},
-            message: 'Area created successfuly'
+            message: 'Area updated successfuly'
         });
     } catch (err) {
         next(err);

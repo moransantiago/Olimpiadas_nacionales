@@ -33,7 +33,7 @@ router.get('/:reportId', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     const report = req.body;
-
+    
     try {
         await ReportService.createReport({ report });
 
@@ -46,11 +46,27 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.put('/:reportId', async (req, res, next) => {
+    const { reportId } = req.params;
+    const report = req.body;
+
+    try {
+        await ReportService.updateReport({ report, reportId });
+
+        res.status(200).json({
+            data: {},
+            message: 'Report updated successfuly'
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.delete('/:reportId', async(req, res, next) => {
     const { reportId } = req.params;
 
     try {
-        await AreaService.deleteArea({ reportId });
+        await ReportService.deleteReport({ reportId });
 
         res.status(200).json({
             data: {},
