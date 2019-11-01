@@ -29,6 +29,11 @@ const PanelLayout = props => {
                     Administrar usuarios
                 </button>
             </Link>
+            <Link to="/enfermeros">
+                <button className="menu-buttons">
+                    Enfermeros
+                </button>
+            </Link>
             <Link to="/emergencia">
                 <button className="menu-buttons">
                     Alarma

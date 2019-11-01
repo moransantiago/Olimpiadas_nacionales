@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../Styles/Ficha.css';
 
@@ -23,7 +24,10 @@ const FichaLayout = props => {
                                         <td>{item.id_pasiente}</td>
                                         <td>{`${item.nombre_pasiente} ${item.apellido_pasiente}`}</td>
                                         <td>{item.telefono_pasiente}</td>
-                                        <td>
+                                        <td className="row">
+                                            <Link to={`/ficha/${item.id_pasiente}`}>
+                                                <button style={{'marginRight': '4px'}}>Editar ficha</button>
+                                            </Link>
                                             <button onClick={() => { props.onDelete(item.id_pasiente) }}>Borrar ficha</button>
                                         </td>
                                     </tr>

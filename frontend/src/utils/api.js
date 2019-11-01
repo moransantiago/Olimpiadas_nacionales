@@ -1,6 +1,7 @@
-import axios from 'axios';  
+import axios from 'axios';
 
-const API_URL = 'http://192.168.30.7:4000';
+// const API_URL = 'http://192.168.30.7:4000';
+const API_URL = 'http://181.229.213.140:5555';
 
 // Alarms
 
@@ -30,11 +31,24 @@ export const getAreas = () => axios({   //<-- Get
     method: 'get'
 });
 
+export const getArea = id => axios({   //<-- Get
+    url: `${API_URL}/api/areas/${id}`,
+    method: 'get'
+});
+
 export const setArea = areaName => axios({  //<-- Post
     url: `${API_URL}/api/areas`,
     method: 'post',
     data: {
         nombre_area: areaName
+    }
+});
+
+export const updateArea = (id, area) => axios({  //<-- Update
+    url: `${API_URL}/api/areas/${id}`,
+    method: 'put',
+    data: {
+        nombre_area: area.nombre_area
     }
 });
 
@@ -48,6 +62,23 @@ export const deleteArea = id => axios({ //<-- Delete
 export const getUsers = () => axios({   //<-- Get
     url: `${API_URL}/api/users`,
     method: 'get'
+});
+
+export const getUser = id => axios({   //<-- Get
+    url: `${API_URL}/api/users/${id}`,
+    method: 'get'
+});
+
+export const updateUser = (id, user) => axios({   //<-- Get
+    url: `${API_URL}/api/users/${id}`,
+    method: 'put',
+    data: {
+        nombre_usuario: user.nombre_usuario,
+        apellido_usuario: user.apellido_usuario,
+        email_usuario: user.email_usuario,
+        telefono_usuario: user.telefono_usuario,
+        tipo_usuario: user.tipo_usuario
+    }
 });
 
 export const setUser = user => axios({  //<-- Post
@@ -70,6 +101,16 @@ export const deleteUser = id => axios({ //<-- Delete
 
 //  Pacientes
 
+export const getFichas = () => axios({   //<-- Get
+    url: `${API_URL}/api/patients`,
+    method: 'get'
+});
+
+export const getFicha = id => axios({   //<-- Get
+    url: `${API_URL}/api/patients/${id}`,
+    method: 'get'
+});
+
 export const setFicha = patient => axios({  //<-- Post
     url: `${API_URL}/api/patients`,
     method: 'post',
@@ -84,12 +125,77 @@ export const setFicha = patient => axios({  //<-- Post
     }
 });
 
-export const getFichas = () => axios({   //<-- Get
-    url: `${API_URL}/api/patients`,
-    method: 'get'
+export const updateFicha = (id, patient) => axios({  //<-- Put
+    url: `${API_URL}/api/patients/${id}`,
+    method: 'put',
+    data: {
+        nombre_pasiente: patient.nombre_pasiente,
+        apellido_pasiente: patient.apellido_pasiente,
+        telefono_pasiente: patient.telefono_pasiente,
+        dni_pasiente: patient.dni_pasiente,
+        ubicacion_pasiente: patient.ubicacion_pasiente,
+        alergia: patient.alergia,
+        estado: patient.estado,
+    }
 });
 
 export const deleteFicha = id => axios({   //<-- Get
     url: `${API_URL}/api/patients/${id}`,
     method: 'delete'
+});
+
+//  Nurses
+
+export const getNurses = () => axios({   //<-- Get
+    url: `${API_URL}/api/nurses`,
+    method: 'get'
+});
+
+export const getNurse = id => axios({   //<-- Get
+    url: `${API_URL}/api/nurses/${id}`,
+    method: 'get'
+});
+
+export const setNurse = nurse => axios({  //<-- Post
+    url: `${API_URL}/api/nurses`,
+    method: 'post',
+    data: {
+        nombre_enfermero: nurse.nombre_enfermero,
+        apellido_enfermero: nurse.apellido_enfermero,
+        especialidad: nurse.especialidad,
+    }
+});
+
+export const updateNurse = (id, nurse) => axios({  //<-- Put
+    url: `${API_URL}/api/nurses/${id}`,
+    method: 'put',
+    data: {
+        nombre_enfermero: nurse.nombre_enfermero,
+        apellido_enfermero: nurse.apellido_enfermero,
+        especialidad: nurse.especialidad,
+    }
+});
+
+export const deleteNurse = id => axios({   //<-- Delete
+    url: `${API_URL}/api/nurses/${id}`,
+    method: 'delete'
+});
+
+//  Reports
+
+export const getReports = () => axios({   //<-- Get
+    url: `${API_URL}/api/reports`,
+    method: 'get'
+});
+
+export const setReport = report => axios({  //<-- Post
+    url: `${API_URL}/api/reports`,
+    method: 'post',
+    data: {
+        enfermero_reporte: report.enfermero_reporte,
+        pasiente_reporte: report.pasiente_reporte,
+        alarma_reporte: report.alarma_reporte,
+        atendido_reportes: report.atendido_reportes,
+        descripcion_reporte: report.descripcion_reporte
+    }
 });

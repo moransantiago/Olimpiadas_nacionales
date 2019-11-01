@@ -20,6 +20,17 @@
     font-size: 50px;
 }
 
+button.report {
+    background-color: rgb(28, 112, 151);
+    color: rgb(22, 19, 19);
+    margin: 15px;
+    border: 2px solid rgb(29, 26, 26);
+    border-radius: 15px;
+    width: 65vw !important;
+    height: 35vh !important;
+    font-size: 50px;
+}
+
 .center {
     display: flex;
     flex-direction: column;

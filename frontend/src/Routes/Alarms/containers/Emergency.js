@@ -11,13 +11,12 @@ class Emergency extends Component {
                 type: 'No hay emergencias aún',
                 location: 'No definido',
                 area: 'No definido',
-            },
-            // autoPlay: true
+            }
         }
     }
 
     componentDidMount = () => {
-        const listener = socket.connect('http://192.168.30.7:4000/ws/alarm');
+        const listener = socket.connect('http://181.229.213.140:5555/ws/alarm');
         listener.on('connect', () => {
             console.log('Device connected');
             listener.on('trigger', data => {
@@ -41,7 +40,6 @@ class Emergency extends Component {
         return (
             <EmergencyLayout
                 data={this.state.data}
-                // autoPlay={this.state.autoPlay}
             />
         );
     }
