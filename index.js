@@ -8,11 +8,12 @@ const cookieParser = require('cookie-parser');
 // const helmet = require('helmet');
 
 const alarmRoute = require('./routes/alarm');
-const areaRoute = require('./routes/area');
+const areasRoute = require('./routes/areas');
 const authRoute = require('./routes/auth');
 const patientsRoute = require('./routes/patients');
 const reportsRoute = require('./routes/reports');
 const usersRoute = require('./routes/users');
+const nursesRoute = require('./routes/nurses');
 const triggerRoute = require('./routes/trigger');
 
 const { bindAlarmEvents } = require('./sockets/alarm');
@@ -32,7 +33,8 @@ app.use('/api/auth', authRoute);
 app.use('/api/patients', patientsRoute);
 app.use('/api/reports', reportsRoute);
 app.use('/api/users', usersRoute);
-app.use('/api/areas', areaRoute);
+app.use('/api/areas', areasRoute);
+app.use('/api/nurses', nursesRoute)
 triggerRoute(app, {io: io.of('/api/alarm'), globalIo: io});
 
 bindAlarmEvents(io.of('/ws/alarm'));

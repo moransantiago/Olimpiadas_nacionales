@@ -24,6 +24,10 @@ class Area{
         await mysql.query(`INSERT INTO ${this.table}(nombre_area, estado_area) VALUES("${nombre_area}", 1)`);
     }
 
+    async updateArea({ nombre_area, areaId }){
+        await mysql.query(`UPDATE ${this.table} SET nombre_area="${nombre_area}" WHERE id_area=${areaId} AND estado_area=1`);
+    }
+
     async deleteArea({ areaId }){
         await mysql.query(`UPDATE ${this.table} SET estado_area='0' WHERE id_area=${areaId}`);
     }

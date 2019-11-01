@@ -45,6 +45,22 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.put('/:areaId', async (req, res, next) => {
+    const { areaId } = req.params;
+    const { nombre_area } = req.body;
+
+    try {
+        await AreaService.updateArea({ nombre_area, areaId });
+
+        res.status(200).json({
+            data: {},
+            message: 'Area created successfuly'
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.delete('/:areaId', async (req, res, next) => {
     const { areaId } = req.params;
 

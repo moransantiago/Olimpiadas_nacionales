@@ -19,7 +19,7 @@ class UserService{
     }
 
     async getUserByEmail({ email }){
-        const user = await mysql.query(`SELECT * FROM ${this.table} WHERE email_usuario=${email}`);
+        const [user] = await mysql.query(`SELECT * FROM ${this.table} WHERE email_usuario="${email}"`);
         return user || {};
     }
 

@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const srvConfig = {
     port: process.env.PORT,
-    dev:  process.env.NODE_ENV === 'development'
+    dev:  process.env.NODE_ENV === 'development',
+    jwtSecret: process.env.AUTH_JWT_SECRET
 }
 
 const dbConfig = {
