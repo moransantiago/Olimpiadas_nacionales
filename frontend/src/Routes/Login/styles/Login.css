@@ -1,0 +1,19 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+}
+
+input, label{
+    margin-right: 550px;
+    margin-left: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.first{
+    margin-top: 250px !important;
+}

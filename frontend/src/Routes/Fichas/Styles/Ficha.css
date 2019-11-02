@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+    padding: 0 0 2em;
+}
+
+input[type=submit] {
+    display: block;
+    color: #fff;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding: 9px 30px;
+    font-size: 1.04em;
+    cursor: pointer;
+    border: 2px solid #ff9900;
+    outline: none;
+    background: #ff9900;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+}
+
+input[type=submit]:hover {
+    background: #023e99;
+    border-color: #023e99;
+    color: #fefefe;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+}
+
+input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+    padding:4px;
+}	
+
+input[type=number] {
+    border: 2px solid red;
+    border-radius: 4px;
+    padding:4px;
+}	
+
+input[type=password] {
+    border: 2px solid red;
+    border-radius: 4px;
+    padding:4px;
+}	
+
+input[type=email] {
+    border: 2px solid red;
+    border-radius: 4px;
+    padding:4px;
+}	
+
+.book-appointment p {
+    color: #ffffff;
+    font-size: 17px;
+    letter-spacing: .5px;
+    text-transform:capitalize;
+}
+
+table.table {
+    margin-right: 0 !important;
+}

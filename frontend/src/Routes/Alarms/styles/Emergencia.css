@@ -1,0 +1,33 @@
+.container {
+    background-color: rgb(126, 126, 126);
+    padding: 10%;
+    height: 100vh !important;
+}
+
+.red {
+    background-color: rgb(124, 0, 0);
+}
+
+.yellow {
+    background-color: rgb(219, 162, 6);
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    font-size: 52px !important;
+}
+
+h2 {
+    margin: 0;
+    margin-top: 35px !important;
+    color: white;
+    font-size: 42px !important;
+}
+
+h3 {
+    margin: 0;
+    margin-top: 38px !important;
+    color: white;
+    font-size: 42px !important;
+}

@@ -1,0 +1,39 @@
+.emergency {
+    background-color: rgb(112, 26, 26);
+    color: #FFFFFF;
+    border: 2px solid rgb(29, 26, 26);
+    border-radius: 15px;
+    width: 65vw !important;
+    height: 35vh !important;
+    margin: 15px;
+    font-size: 60px;
+}
+
+.doctor {
+    background-color: rgb(255, 98, 98);
+    color: rgb(22, 19, 19);
+    margin: 15px;
+    border: 2px solid rgb(29, 26, 26);
+    border-radius: 15px;
+    width: 65vw !important;
+    height: 35vh !important;
+    font-size: 50px;
+}
+
+button.report {
+    background-color: rgb(28, 112, 151);
+    color: rgb(22, 19, 19);
+    margin: 15px;
+    border: 2px solid rgb(29, 26, 26);
+    border-radius: 15px;
+    width: 65vw !important;
+    height: 35vh !important;
+    font-size: 50px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}

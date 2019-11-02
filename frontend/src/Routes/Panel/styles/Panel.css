@@ -1,0 +1,35 @@
+form input.input-panel, label.label-panel{
+    margin-right: 550px;
+    margin-left: 550px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.panel-container {
+    display: flex;
+    flex: 1;
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 5%;
+}
+
+h1.title {
+    font-size: 48 !important;
+    color: black !important;
+    margin-bottom: 45px;
+}
+
+.first {
+    margin-top: 250px !important;
+}
+
+button.menu-buttons {
+    margin: 10px
+}
